@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- CONFIG DE LA CONNEXION -->
+        <property name="hibernate.connection.url">jdbc:sqlite:./data/database.sqlite</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- Dialect InnoDB -->
+        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+        <property name="cache.use_query_cache">false</property>
+
+        <!-- SAVOIR SI ON RESET LE BDD OU PAS -->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <!-- MAPPING DES CLASSES -->
+        <mapping class="com.marcbouchez.entities.Jeu"/>
+        <mapping class="com.marcbouchez.entities.Plateforme"/>
+        <mapping class="com.marcbouchez.entities.Categorie"/>
+    </session-factory>
+</hibernate-configuration>
